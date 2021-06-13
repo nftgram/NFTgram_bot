@@ -141,8 +141,8 @@ async def set_price(message, state):
             one_time_keyboard=True, resize_keyboard=True
         )
         keyboard.add(
-            types.KeyboardButton(emojize(":white_check_mark: ") + _("yes")),
-            types.KeyboardButton(emojize(":x: ") + _("no")),
+            types.KeyboardButton(emojize(":white_check_mark: ") + _("agree")),
+            types.KeyboardButton(emojize(":x: ") + _("disagree")),
         )
         await Minting.check_price.set()
         await message.answer(

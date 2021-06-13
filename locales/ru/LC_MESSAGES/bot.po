@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: rchrdsn@protonmail.ch\n"
-"POT-Creation-Date: 2021-06-13 14:20+0300\n"
+"POT-Creation-Date: 2021-06-13 14:38+0300\n"
 "PO-Revision-Date: 2021-06-12 13:26+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -76,6 +76,14 @@ msgstr ""
 #: nftgram/handlers/mint.py
 msgid "wrong_price_format"
 msgstr "Неизвестный формат цены."
+
+#: nftgram/handlers/mint.py
+msgid "agree"
+msgstr "Подтвердить"
+
+#: nftgram/handlers/mint.py
+msgid "disagree"
+msgstr "Исправить"
 
 #: nftgram/handlers/mint.py
 msgid "check_price {price}"
@@ -264,3 +272,4 @@ msgstr "Роялти: {royalty}%"
 #: nftgram/utils.py
 msgid "license {license}"
 msgstr "Условия использования: {license}"
+
