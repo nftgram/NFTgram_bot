@@ -1,5 +1,6 @@
 import json
 import decimal
+from urllib.parse import quote
 
 from aiogram import types
 from aiogram.types import ContentType
@@ -422,6 +423,15 @@ async def approve_token(call, callback_data, state):
     token_id = callback_data["token_id"]
     data = json.loads(await database.get(f"token:{token_id}"))
     ipfs_hash = await utils.pin_to_ipfs(token_id, data)
+    keyboard = types.InlineKeyboardMarkup()
+    keyboard.add(
+        types.InlineKeyboardButton(
+            _("confirm_url"),
+            url="https://nftgram.store/mint?ipfs={}&royalty={}&token_id={}".format(
+                quote(f"/ipfs/{ipfs_hash}"), data["royalty"], token_id
+            ),
+        )
+    )
     await bot.send_message(data["user_id"], _("confirm_transaction"))
     await call.answer()
     await call.message.edit_text(_("token_approved"))
