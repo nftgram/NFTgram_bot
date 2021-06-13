@@ -477,6 +477,7 @@ async def send_moderator_comment(message, state):
 async def start_changes(call, callback_data, state):
     token_id = callback_data["token_id"]
     data = json.loads(await database.get(f"token:{token_id}"))
+    await state.set_data(data)
     await edit_token(call, data, edit=False)
 
 
