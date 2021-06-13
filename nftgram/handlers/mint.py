@@ -432,7 +432,12 @@ async def approve_token(call, callback_data, state):
             ),
         )
     )
-    await bot.send_message(data["user_id"], _("confirm_transaction"))
+    await bot.send_message(
+        data["user_id"],
+        _("confirm_transaction {metamask_url}").format(
+            metamask_url=markdown.link(_("here"), "https://metamask.io/download.html")
+        ),
+    )
     await call.answer()
     await call.message.edit_text(_("token_approved"))
 
