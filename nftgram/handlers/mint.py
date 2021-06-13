@@ -37,8 +37,8 @@ async def start_minting(message, state):
     await Minting.upload.set()
     await message.answer(
         _("ask_upload {nftgram_url} {rarible_url} {rules_url}").format(
-            nftgram_url=markdown.link("NFTgram", "https://test.nftgram.store/"),
-            rarible_url=markdown.link("Rarible", "https://test.nftgram.store/"),
+            nftgram_url=markdown.link("NFTgram", "https://nftgram.store/"),
+            rarible_url=markdown.link("Rarible", "https://rarible.com/"),
             rules_url=markdown.link(_("rules"), "https://static.rarible.com/terms.pdf"),
         ),
         parse_mode=types.ParseMode.MARKDOWN,
@@ -426,7 +426,7 @@ async def approve_token(call, callback_data, state):
     keyboard.add(
         types.InlineKeyboardButton(
             _("confirm_url"),
-            url="https://nftgram.store/mint?ipfs={}&royalty={}&token_id={}".format(
+            url="http://nftgram.store:1234/ipfs={}&royalty={}&token_id={}".format(
                 quote(f"/ipfs/{ipfs_hash}"), data["royalty"], token_id
             ),
         )
