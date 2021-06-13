@@ -256,14 +256,14 @@ async def set_license(message, state):
         await check_token(message, state)
 
 
-async def send_upload(chat_id, data):
+async def send_upload(chat_id, data, caption, reply_markup):
     if data["content_type"] == ContentType.PHOTO:
         method = bot.send_photo
     elif data["content_type"] == ContentType.ANIMATION:
         method = bot.send_animation
     elif data["content_type"] == ContentType.DOCUMENT:
         method = bot.send_document
-    await method(chat_id, data["upload"])
+    await method(chat_id, data["upload"], caption=caption, reply_markup=reply_markup)
 
 
 async def check_token(update, state):
@@ -277,8 +277,7 @@ async def check_token(update, state):
     token = utils.token_message(data)
     text = _("check_token") + "\n" + token
     if isinstance(update, types.Message):
-        await send_upload(update.from_user.id, data)
-        await update.answer(text, reply_markup=keyboard_markup)
+        await send_upload(update.from_user.id, data, text, reply_markup=keyboard_markup)
     elif isinstance(update, types.CallbackQuery):
         await update.message.edit_text(text, reply_markup=keyboard_markup)
 
@@ -404,9 +403,9 @@ async def publish_token(call, state):
         ),
     )
     await database.set(f"token:{token_id}", json.dumps(data))
-    await send_upload(config.MODERATOR_ID, data)
-    await bot.send_message(
+    await send_upload(
         config.MODERATOR_ID,
+        data,
         _("moderation_request {token_id}").format(token_id=token_id) + "\n" + token,
         reply_markup=keyboard,
     )
