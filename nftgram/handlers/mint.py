@@ -274,7 +274,6 @@ async def check_token(update, state):
     )
     await Minting.check_token.set()
     data = await state.get_data()
-    print(data)
     token = utils.token_message(data)
     text = _("check_token") + "\n" + token
     if isinstance(update, types.Message):
@@ -437,6 +436,9 @@ async def approve_token(call, callback_data, state):
         _("confirm_transaction {metamask_url}").format(
             metamask_url=markdown.link(_("here"), "https://metamask.io/download.html")
         ),
+        reply_markup=keyboard,
+        parse_mode=types.ParseMode.MARKDOWN,
+        disable_web_page_preview=True,
     )
     await call.answer()
     await call.message.edit_text(_("token_approved"))
