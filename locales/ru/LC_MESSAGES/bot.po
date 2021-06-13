@@ -1,0 +1,259 @@
+# Russian translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: rchrdsn@protonmail.ch\n"
+"POT-Creation-Date: 2021-06-13 02:57+0300\n"
+"PO-Revision-Date: 2021-06-12 13:26+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: nftgram/handlers/base.py
+msgid "mint_nft"
+msgstr "Создать NFT"
+
+#: nftgram/handlers/base.py
+msgid "buy_nft"
+msgstr "Купить NFT"
+
+#: nftgram/handlers/base.py
+msgid "start_message"
+msgstr "Привет!"
+
+#: nftgram/handlers/mint.py
+msgid "ask_upload {nftgram_url} {rarible_url} {rules_url}"
+msgstr ""
+"Пришлите в чат-бота ваше творение, либо ссылку на него.\n"
+"Это может быть изображение, гиф или видео\n"
+"(Размер не более 100Мб)\n"
+"Принимаются форматы JPG, PNG, GIF, MP4\n"
+"\n"
+"Сделаем из него NFT в блокчейне Ethereum.\n"
+"NFT будет доступна на маркетплейсе {nftgram_url} и {rarible_url}.\n"
+"\n"
+"Работы проходят модерацию. Убедитесь, что она соответствует {rules_url}"
+
+#: nftgram/handlers/mint.py
+msgid "rules"
+msgstr "правилам"
+
+#: nftgram/handlers/mint.py
+msgid "unknown_content_type"
+msgstr "Неизвестный тип контента"
+
+#: nftgram/handlers/mint.py
+msgid "yes"
+msgstr "Да"
+
+#: nftgram/handlers/mint.py
+msgid "no"
+msgstr "Нет"
+
+#: nftgram/handlers/mint.py
+msgid "confirm_compressed_upload"
+msgstr "Вы отправляете сжатый файл. Вы согласны?"
+
+#: nftgram/handlers/mint.py
+msgid "ask_new_upload"
+msgstr "Отправьте новый файл."
+
+#: nftgram/handlers/mint.py
+msgid "ask_price"
+msgstr ""
+"Отличная работа!\n"
+"Укажите, пожалуйста, цену в ETH.\n"
+"Комиссия маркетплейса с каждой продажи 2%"
+
+#: nftgram/handlers/mint.py
+msgid "wrong_price_format"
+msgstr "Неизвестный формат цены."
+
+#: nftgram/handlers/mint.py
+msgid "check_price {price}"
+msgstr "С учетом комиссии при продаже вы получите {price} ETH."
+
+#: nftgram/handlers/mint.py
+msgid "ask_new_price"
+msgstr "Отправьте новую цену."
+
+#: nftgram/handlers/mint.py
+msgid "ask_name"
+msgstr ""
+"Теперь нужно определиться с названием вашего творения.\n"
+"Напишите его в чат-бота.\n"
+"\n"
+"Внимание! Изменить название NFT после публикации невозможно! Оно "
+"записывается в блокчейн"
+
+#: nftgram/handlers/mint.py
+msgid "skip_description"
+msgstr "Продолжить без указания описания"
+
+#: nftgram/handlers/mint.py
+msgid "ask_description"
+msgstr ""
+"Теперь напишите текстовое описание вашего NFT.\n"
+"Это очень важный момент, отнеситесь к нему ответственно!\n"
+"\n"
+"Однако вы можете не указывать описание.\n"
+"\n"
+"Внимание! Изменить описание NFT после публикации невозможно! Оно "
+"записывается в блокчейн"
+
+#: nftgram/handlers/mint.py
+msgid "ask_royalty"
+msgstr ""
+"Вы можете назначить своё вознаграждение в процентах со всех будущих "
+"продаж, либо опубликовать работу без вашего роялти, указав \"0\"."
+
+#: nftgram/handlers/mint.py
+msgid "wrong_royalty_format"
+msgstr "Неизвестный формат вознаграждения."
+
+#: nftgram/handlers/mint.py
+msgid "commercial_use"
+msgstr "Коммерческое использование"
+
+#: nftgram/handlers/mint.py
+msgid "non_commercial_use"
+msgstr "Некоммерческое использование"
+
+#: nftgram/handlers/mint.py
+msgid "ask_license"
+msgstr ""
+"Сообщите, пожалуйста, всем покупателям условия использования вашего NFT. "
+"Может ли покупатель использовать его в коммерческих целях?"
+
+#: nftgram/handlers/mint.py
+msgid "unknown_license"
+msgstr "Выберите из указанных вариантов."
+
+#: nftgram/handlers/mint.py
+msgid "edit_token"
+msgstr "Отредактировать"
+
+#: nftgram/handlers/mint.py
+msgid "publish_token"
+msgstr "Опубликовать"
+
+#: nftgram/handlers/mint.py
+msgid "check_token"
+msgstr "Ваш NFT будет иметь следующий вид:"
+
+#: nftgram/handlers/mint.py
+msgid "cancel_edit_token"
+msgstr "Отмена"
+
+#: nftgram/handlers/mint.py
+msgid "token_editing"
+msgstr "Выберите шаг для редактирования:"
+
+#: nftgram/handlers/mint.py
+msgid "ask_new_name"
+msgstr "Отправьте новое название."
+
+#: nftgram/handlers/mint.py
+msgid "ask_new_description"
+msgstr "Отправьте новое описание."
+
+#: nftgram/handlers/mint.py
+msgid "remove_description"
+msgstr "Удалить"
+
+#: nftgram/handlers/mint.py
+msgid "ask_new_royalty"
+msgstr "Отправьте новое вознаграждение."
+
+#: nftgram/handlers/mint.py
+msgid "ask_new_license"
+msgstr "Отправьте новую лицензию."
+
+#: nftgram/handlers/mint.py
+msgid "unknown_step"
+msgstr "Неизвестный шаг."
+
+#: nftgram/handlers/mint.py
+msgid "cancel_edit_step"
+msgstr "Отмена"
+
+#: nftgram/handlers/mint.py
+msgid "approve_token"
+msgstr "Опубликовать"
+
+#: nftgram/handlers/mint.py
+msgid "request_token_changes"
+msgstr "Запросить исправления"
+
+#: nftgram/handlers/mint.py
+msgid "reject_token"
+msgstr "Отказать"
+
+#: nftgram/handlers/mint.py
+msgid "moderation_request {token_id}"
+msgstr "Пришёл запрос №{token_id} на публикацию NFT."
+
+#: nftgram/handlers/mint.py
+msgid "moderation_requested {token_id}"
+msgstr "Запрос №{token_id} на публикацию NFT отправлен на модерацию."
+
+#: nftgram/handlers/mint.py
+msgid "confirm_transaction"
+msgstr "Публикацию NFT необходимо подтвердить в кошельке MetaMask."
+
+#: nftgram/handlers/mint.py
+msgid "token_approved"
+msgstr "Заявка на публикацию NFT подтверждена."
+
+#: nftgram/handlers/mint.py
+msgid "ask_moderator_comment"
+msgstr "Отправьте комментарий."
+
+#: nftgram/handlers/mint.py
+msgid "start_editing"
+msgstr "Внести изменения"
+
+#: nftgram/handlers/mint.py
+msgid "moderator_comment {comment}"
+msgstr ""
+"Модератор запросил исправление NFT:\n"
+"\"{comment}\""
+
+#: nftgram/handlers/mint.py
+msgid "token_rejected"
+msgstr "NFT отклонён."
+
+#: nftgram/handlers/mint.py
+msgid "token_rejected_moderator {token_id}"
+msgstr "NFT {token_id} отклонён."
+
+#: nftgram/utils.py
+msgid "name {name}"
+msgstr "Название: {name}"
+
+#: nftgram/utils.py
+msgid "description {description}"
+msgstr "Описание: {description}"
+
+#: nftgram/utils.py
+msgid "price {price}"
+msgstr "Цена: {price} ETH"
+
+#: nftgram/utils.py
+msgid "royalty {royalty}"
+msgstr "Роялти: {royalty}%"
+
+#: nftgram/utils.py
+msgid "license {license}"
+msgstr "Условия использования: {license}"
+
