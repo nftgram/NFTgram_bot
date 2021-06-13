@@ -1,5 +1,6 @@
 <div align="center">
 <h1>NFTgram bot</h1>
+<img src="https://nftgram.store/images/nfgramlogo.png">
 
 [![Telegram](https://img.shields.io/badge/Telegram-nftgram_bot-blue?logo=telegram)](https://t.me/NFTgram_bot)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
