@@ -425,7 +425,7 @@ async def approve_token(call, callback_data, state):
     keyboard.add(
         types.InlineKeyboardButton(
             _("confirm_url"),
-            url="http://nftgram.store:1234/ipfs={}&royalty={}&token_id={}".format(
+            url="http://nftgram.store:1234/?ipfs={}&royalty={}&token_id={}".format(
                 quote(f"/ipfs/{ipfs_hash}"), data["royalty"], token_id
             ),
         )
