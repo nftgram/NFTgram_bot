@@ -41,6 +41,7 @@ async def start_minting(message, state):
             rules_url=markdown.link(_("rules"), "https://static.rarible.com/terms.pdf"),
         ),
         parse_mode=types.ParseMode.MARKDOWN,
+        disable_web_page_preview=True,
     )
 
 
@@ -420,6 +421,7 @@ async def publish_token(call, state):
 async def approve_token(call, callback_data, state):
     token_id = callback_data["token_id"]
     data = json.loads(await database.get(f"token:{token_id}"))
+    ipfs_hash = await utils.pin_to_ipfs(token_id, data)
     await bot.send_message(data["user_id"], _("confirm_transaction"))
     await call.answer()
     await call.message.edit_text(_("token_approved"))

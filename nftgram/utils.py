@@ -1,3 +1,4 @@
+import aiohttp
 import os
 
 from nftgram import config
@@ -39,3 +40,40 @@ async def get_upload(file_id):
     file_path = os.path.join(config.UPLOADS_DIRECTORY, file_id)
     if not os.path.exists(file_path):
         await bot.download_file_by_id(file_id, file_path)
+
+
+async def pin_to_ipfs(token_id, token):
+    with open(os.path.join(config.UPLOADS_DIRECTORY, token["upload"]), "rb") as f:
+        async with aiohttp.ClientSession() as session:
+            file_pin_response = await session.post(
+                "https://api.pinata.cloud/pinning/pinFileToIPFS",
+                data={"file": f.read()},
+                headers={
+                    "Authorization": f"Bearer {config.PINATA_JWT}"
+                },
+            )
+    file_pin = await file_pin_response.json()
+    image = file_pin["IpfsHash"]
+    metadata = {
+        "name": token["name"],
+        "description": token.get("description", ""),
+        "image": f"ipfs://ipfs/{image}",
+        "external_url": f"https://nftgram.store/{token_id}",
+        "animation_url": f"ipfs://ipfs/{image}",
+        "attributes": [
+            {
+                "key": "License",
+                "trait_type": "License",
+                "value": token["license"]
+            }
+        ]
+    }
+    with open(os.path.join(config.UPLOADS_DIRECTORY, token["upload"]), "rb") as f:
+        async with aiohttp.ClientSession() as session:
+            json_pin_response = await session.post(
+                "https://api.pinata.cloud/pinning/pinJSONToIPFS",
+                data=metadata,
+                headers={"Authorization": f"Bearer {config.PINATA_JWT}"},
+            )
+    json_pin = await json_pin_response.json()
+    return json_pin["IpfsHash"]

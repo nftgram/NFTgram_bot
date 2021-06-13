@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: rchrdsn@protonmail.ch\n"
-"POT-Creation-Date: 2021-06-13 02:57+0300\n"
+"POT-Creation-Date: 2021-06-13 11:07+0300\n"
 "PO-Revision-Date: 2021-06-12 13:26+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -28,8 +28,10 @@ msgid "buy_nft"
 msgstr "Купить NFT"
 
 #: nftgram/handlers/base.py
-msgid "start_message"
-msgstr "Привет!"
+msgid "start_message {nftgram_url} {mint_nft}"
+msgstr ""
+"Витрина маркетплейса {nftgram_url}\n"
+"Начните с кнопки \"{mint_nft}\"."
 
 #: nftgram/handlers/mint.py
 msgid "ask_upload {nftgram_url} {rarible_url} {rules_url}"
@@ -256,4 +258,3 @@ msgstr "Роялти: {royalty}%"
 #: nftgram/utils.py
 msgid "license {license}"
 msgstr "Условия использования: {license}"
-
