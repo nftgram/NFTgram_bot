@@ -1,8 +1,10 @@
 import asyncio
 import functools
 import logging
+import json
 import secrets
 
+from aiohttp import web
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
 from aiogram.utils import executor
 
@@ -10,7 +12,19 @@ import nftgram.handlers  # noqa: F401
 from nftgram import config
 from nftgram.database import database
 from nftgram.bot import bot
+from nftgram.i18n import _
 from nftgram.bot import dp
+
+
+async def handle_confirmed_token(request):
+    try:
+        body = await request.json()
+        token_id = body["token_id"]
+    except (json.JSONDecodeError, KeyError):
+        return web.Response(status=400)
+    data = json.loads(await database.get(f"token:{token_id}"))
+    await bot.send_message(data["user_id"], _("token_confirmed"))
+    return web.Response()
 
 
 async def on_startup(*args, webhook_path=None):
@@ -22,6 +36,12 @@ async def on_startup(*args, webhook_path=None):
         f"redis://{config.DATABASE_HOST}:{config.DATABASE_PORT}",
         password=config.DATABASE_PASSWORD,
     )
+    app = web.Application()
+    app.add_routes([web.post("/", handle_confirmed_token)])
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, "127.0.0.1", 2021)
+    await site.start()
     await bot.delete_webhook()
     if webhook_path is not None:
         await bot.set_webhook("https://" + config.SERVER_HOST + webhook_path)

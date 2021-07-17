@@ -1,6 +1,6 @@
 import json
 import decimal
-from urllib.parse import quote
+from urllib.parse import urlencode
 
 from aiogram import types
 from aiogram.types import ContentType
@@ -425,9 +425,13 @@ async def approve_token(call, callback_data, state):
     keyboard.add(
         types.InlineKeyboardButton(
             _("confirm_url"),
-            url="http://nftgram.store:1234/?ipfs={}&royalty={}&token_id={}".format(
-                quote(f"/ipfs/{ipfs_hash}"), data["royalty"], token_id
-            ),
+            url=config.CONFIRMATION_URL + "?" + urlencode(
+                {
+                    "ipfs": f"/ipfs/{ipfs_hash}",
+                    "royalty": data["royalty"],
+                    "token_id": token_id
+                }
+            )
         )
     )
     await bot.send_message(

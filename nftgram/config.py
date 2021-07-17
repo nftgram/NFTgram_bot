@@ -9,7 +9,7 @@ DEFAULT_VALUES = {
     "SET_WEBHOOK": False,
     "INTERNAL_HOST": "127.0.0.1",
     "DATABASE_HOST": "127.0.0.1",
-    "DATABASE_PORT": 5432,
+    "DATABASE_PORT": 6379,
     "DATABASE_NAME": "nftgram",
     "SKIP_UPDATES": False,
     "UPLOADS_DIRECTORY": Path(__file__).parents[1] / "uploads",
